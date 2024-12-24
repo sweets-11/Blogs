@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+    <form action="/blog/createBlog" method="post" enctype="multipart/form-data">
+      <label for="">Title</label>
+      <input type="text" placeholder="your title" name="title" />
+      <label for="">Content</label>
+      <input type="text" placeholder="your content" name="content" />
+      <input type="file" name="fileImage" />
+      <button type="submit">Create Blog</button>
+    </form>
+  </body>
+</html>

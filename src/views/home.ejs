@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <%- include("./partials/nav.ejs") %>
+    <div style="display: flex; justify-content: space-around; max-width: 50vw;">
+      <div>
+        <h1><%= blogs.title %></h1>
+        <p><%= blogs.content %></p>
+        <img
+          src="<%= blogs.imagePath %>"
+          width="600px"
+          alt="<%= blogs.imagePath %>"
+        />
+
+         <form action="/comment/create/<%= blogs._id %>" method="post" enctype="application/x-www-form-urlencoded">
+          <div style="display: flex; align-items: center;">
+            <label for="">Your Comment</label>
+            <textarea style="margin-left: 10px;" name="comment" cols="50" id="" placeholder="Enter your comment"></textarea>
+          </div>
+          <button type="submit">Comment</button>
+         </form>
+        <h3>Comments:</h3>
+        <div>
+          <% comments.forEach((comment) =>{ %>
+            <div style="display: flex; align-items: center;">
+              <h4 style="margin-right: 10px;">By :<%= comment.createdBy.fullName %></h4>
+              <h2><%= comment.comment %></h2>
+            </div>
+            <%   }) %>
+          </div>
+      </div>
+    </div>
+
+   
+
+ 
+  </body>
+</html>
